@@ -9,31 +9,31 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
       alignItems="center"
       justifyContent="center"
       className="bodyPart-card"
-      sx={
-        bodyPart === item
-          ? {
-              borderTop: "4px solid #FF2625",
-              background: "#FFF",
-              borderBottomLeftRadius: "20px",
-              width: "270px",
-              height: "280px",
-              cursor: "pointer",
-              gap: "47px",
-            }
-          : {
-              background: "#FFF",
-              borderBottomLeftRadius: "20px",
-              width: "270px",
-              height: "280px",
-              cursor: "pointer",
-              gap: "47px",
-            }
-      }>
+      sx={{
+        borderTop: bodyPart === item ? "4px solid #FF2625" : "",
+        background: "#FFF",
+        borderBottomLeftRadius: "20px",
+        width: "270px",
+        height: "280px",
+        cursor: "pointer",
+        gap: "47px",
+      }}
+      onClick={() => {
+        setBodyPart(item);
+        window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
+      }}>
       <img
         src={Icon}
         alt="dumbbell"
-        styles={{ width: "40px", height: "40px" }}
+        style={{ width: "60px", height: "60px" }}
       />
+      <Typography
+        fontSize="24px"
+        fontWeight="bold"
+        color="#3A1212"
+        textTransform="capitalize">
+        {item}
+      </Typography>
     </Stack>
   );
 };
