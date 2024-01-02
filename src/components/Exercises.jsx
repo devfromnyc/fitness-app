@@ -20,6 +20,27 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
     setCurrentPage(value);
     window.scrollTo({ top: 1000, behavior: "smooth" });
   };
+
+  useEffect(() => {
+    const fetchExerciseData = async () => {
+      let exercisesData = [];
+
+      if (bodyPart === "all") {
+        exercisesData = await fetchData(
+          "https://exercisedb.p.rapidapi.com/exercises",
+          exerciseOptions
+        );
+      } else {
+        exercisesData = await fetchData(
+          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
+          exerciseOptions
+        );
+      }
+      setExercises(exercisesData);
+    };
+    fetchExerciseData();
+  }, [bodyPart]);
+
   return (
     <Box id="exercises" sx={{ mt: { lg: "100px" } }} mt="50px" p="20px">
       <Typography variant="h3" mb="46px">
