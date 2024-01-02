@@ -6,7 +6,6 @@ import ExerciseCard from "./ExerciseCard";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
-  console.log(exercises);
   return (
     <Box id="exercises" sx={{ mt: { lg: "100px" } }} mt="50px" p="20px">
       <Typography variant="h3" mb="46px">
@@ -20,6 +19,11 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         {exercises.map((exercise, index) => {
           return <ExerciseCard key={index} exercise={exercise} />;
         })}
+      </Stack>
+      <Stack mt="100px" alignItems="center">
+        {exercises.length > 9 && (
+          <Pagination color="standard" shape="rounded" />
+        )}
       </Stack>
     </Box>
   );
