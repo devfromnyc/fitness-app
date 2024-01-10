@@ -1,3 +1,3 @@
 # Fitness App Powered By React + Vite
 
-Link: Coming Soon!
+Link: https://fitness-app-66e8e.web.app/
